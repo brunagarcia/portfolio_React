@@ -1,24 +1,36 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
+
 
 export default class Header extends Component {
   render(){
     return(
-      <nav className="navbar sticky-top navbar-dark bg-dark">
-        <ul className="nav">
-          <li className="nav-item">
-            <a className="navbar-brand" href="#">Brunatron</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link active" href="#" onClick={(e)=> {this.props.navigationFunc(e, 'Home')}}>Home</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#" onClick={(e)=> {this.props.navigationFunc(e, 'About')}}>About</a>
-          </li>
-          <li className="nav-item">
-          <a className="nav-link" href="#" onClick={(e)=> {this.props.navigationFunc(e, 'Contact')}}>Contact</a>
-          </li>
-        </ul>        
-      </nav>
+      <div>
+        <nav className="navbar sticky-top navbar-dark bg-dark">
+          <ul className="nav">
+            <li className="nav-item">
+              <Link className="navbar-brand" to="/">Brunatron</Link>
+            </li>
+            <Link to="/home" className="nav-link active">
+              <li className="nav-item">
+                Home
+              </li>
+            </Link>
+            
+            <Link to="/about" className="nav-link">
+              <li className="nav-item">
+              About
+              </li>
+            </Link>
+
+            <Link to="/contact" className="nav-link">
+              <li className="nav-item">
+              Contact
+              </li>
+            </Link>
+          </ul>        
+        </nav>
+      </div>
     )
   }
 }

@@ -4,6 +4,7 @@ import Nav from './components/Nav';
 import Home from './components/Home';
 import About from './components/About';
 import Contact from './components/Contact';
+import { Switch, Route } from 'react-router-dom';
 
 import './App.css';
 
@@ -16,37 +17,16 @@ class App extends Component {
     }
   }
 
-
-  //Function handling the page change:
-  navigationFunc (e, pageTemp) {
-    e.preventDefault()
-
-    this.setState({
-      page
-    })
-  }
-
-
   render() {
-    let page
-    //condition to handle page change
-    if (this.state.page === 'Home'){
-      page = <Home />
-
-    }else if (this.state.page === 'About'){
-      page = <About />
-
-    }else if (this.state.page === 'Contact'){
-      page = <Contact />
-    }else{
-      console.log("error on page --- Create 404")
-    }
-
     return (
       <div className='container-fluid'>
         <Nav navigationFunc={this.navigationFunc} />
         <Header />
-
+        <Switch>
+          <Route path='/home' component={ Home } />
+          <Route path='/about' component={ About } />
+          <Route path='/contact' component={ Contact } />
+        </Switch>
       </div>
     )
   }

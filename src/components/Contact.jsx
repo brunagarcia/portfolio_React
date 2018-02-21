@@ -3,7 +3,9 @@ import React, { Component } from 'react';
 export default class Contact extends Component {
   render(){
     return(
-      <h1> This is Contact page! </h1>
+      <div className="container">
+        <h1> This is Contact page! </h1>
+      </div>
     )
   }
 }
